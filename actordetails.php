@@ -6,7 +6,8 @@
 </head>
 
 <body>
-<?php $actorID= filter_input(INPUT_GET,'actorid',FILTER_VALIDATE_INT) or die('Missing/illegal categoryid parameter'); ?>
+<?php $actorID= filter_input(INPUT_GET,'actorid',FILTER_VALIDATE_INT) 
+or die('Missing/illegal categoryid parameter'); ?>
 <h1>Actor details: </h1>
 <?php
 	require_once ('dbcon.php');
@@ -26,7 +27,7 @@ WHERE actor_id=?
 ?>
 
 
-
+<h2>Actor played in the movies below :</h2>
 <?php 
 
 require_once ('dbcon.php');
@@ -42,7 +43,8 @@ AND film_actor.actor_id=?';
 	$stmt->bind_result($aID, $aMovies);
 	while($stmt->fetch()){ ?>
 		
-		<li><a href="filmdetails.php?filmid=<?=$aID?>"><?=$aMovies?></a></li>
+		<li><a href="filmdetails.php?filmid=<?=$aID?>">
+		<?=$aMovies?></a></li>
 	<?php	
         }
 		

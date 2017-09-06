@@ -7,7 +7,8 @@
 
 <body>
 <?php
-$catID= filter_input(INPUT_GET,'categoryid',FILTER_VALIDATE_INT) or die('Missing/illegal categoryid parameter'); ?>
+$catID= filter_input(INPUT_GET,'categoryid',FILTER_VALIDATE_INT) 
+or die('Missing/illegal categoryid parameter'); ?>
 
 <h1>Films in category <?=$catID?></h1>
 <ul>
@@ -24,7 +25,7 @@ $sql = '		SELECT f.film_id, f.title
 	$stmt->execute();
 	$stmt->bind_result($fID,$fTitle);
 	while($stmt->fetch()){ ?>
-		<li><a href="filmdetails.php?filmid=<?=$fID?>"><?=$fTitle ?></a> </li>
+<li><a href="filmdetails.php?filmid=<?=$fID?>"><?=$fTitle ?></a> </li>
 <?php
 	}
 ?>

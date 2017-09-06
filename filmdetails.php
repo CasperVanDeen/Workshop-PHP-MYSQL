@@ -7,7 +7,8 @@
 
 <body>
 <?php
-$filmID= filter_input(INPUT_GET,'filmid',FILTER_VALIDATE_INT) or die('Missing/illegal categoryid parameter'); ?>
+$filmID= filter_input(INPUT_GET,'filmid',FILTER_VALIDATE_INT) 
+or die('Missing/illegal categoryid parameter'); ?>
 <?php
 	require_once ('dbcon.php');
 // selecting title for specific movie
@@ -80,7 +81,8 @@ and film_actor.film_id=?';
 	$stmt->bind_result($aID, $aFirst, $aLast);
 	while($stmt->fetch()){ ?>
 		
-		<li><a href="actordetails.php?actorid=<?=$aID?>"><?=$aFirst?> <?=$aLast?></a></li>
+		<li><a href="actordetails.php?actorid=<?=$aID?>">
+		<?=$aFirst?> <?=$aLast?></a></li>
 	<?php	
         }
 		
